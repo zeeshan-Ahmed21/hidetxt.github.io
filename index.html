@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Text Reveal</title>
+    <style>
+        #container {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center; /* Center content */
+        }
+        #textDisplay {
+            margin: 10px 0;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+            width:100%;
+            height: 100%;
+            display: inline-block; /* Center div */
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .h1{
+            color:#2f2f2f;
+            font-family:'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 class="h1">Text Reveal Example</h1>
+        <input type="text" id="inputText" placeholder="Type your text here" class="btn btn-outline-dark color-black">
+        <button type="button" class="btn btn-outline-info" onclick="displayTextAsDots()">Display as Dots</button>
+        <button type="button" class="btn btn-outline-info" onclick="revealText()">Reveal Text</button>
+        <button type="button" class="btn btn-outline-info" onclick="hideText()">Hide Text</button>
+        <div id="textDisplay" class="border border-secondary"></div>
+    </div>
+    <script>
+        let originalText = '';
+
+        function displayTextAsDots() {
+            // Get the text from the input field
+            const inputField = document.getElementById('inputText');
+            originalText = inputField.value;
+
+            // Display the text as dots
+            const textDisplay = document.getElementById('textDisplay');
+            if (originalText) {
+                textDisplay.textContent = '.'.repeat(originalText.length);
+            } else {
+                textDisplay.textContent = '';
+            }
+        }
+
+        function revealText() {
+            // Reveal the original text
+            const textDisplay = document.getElementById('textDisplay');
+            textDisplay.textContent = originalText;
+        }
+
+        function hideText() {
+            // Hide the text and display as dots
+            const textDisplay = document.getElementById('textDisplay');
+            if (originalText) {
+                textDisplay.textContent = '.'.repeat(originalText.length);
+            } else {
+                textDisplay.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
